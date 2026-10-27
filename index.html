@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Vishal!</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:flex;align-items:center;
+ justify-content:center;text-align:center;color:white;
+ font-family:Arial,sans-serif;overflow:hidden;
+ background:linear-gradient(135deg,#12002f,#4b0082,#e9408e);
+}
+.card{
+ position:relative;z-index:2;width:90%;max-width:420px;
+ padding:30px 20px;border:1px solid #ffffff66;
+ border-radius:25px;background:#ffffff16;
+ backdrop-filter:blur(10px);
+ box-shadow:0 0 35px #ff72d2;
+}
+.cake{font-size:75px;animation:bounce 1.5s infinite}
+h1{font-size:35px;color:#ffe66d;text-shadow:0 0 15px #ff65ce}
+p{font-size:17px;line-height:1.7}
+button{
+ border:0;border-radius:30px;padding:14px 23px;
+ background:#ffe66d;color:#341052;font-weight:bold;
+ font-size:16px;cursor:pointer;
+}
+#message{display:none;margin-top:20px;color:#fff5ad}
+.balloon{position:absolute;bottom:-120px;font-size:45px;
+ animation:float 8s linear infinite}
+.b1{left:8%;animation-delay:0s}.b2{left:75%;animation-delay:2s}
+.b3{left:42%;animation-delay:4s}.b4{left:88%;animation-delay:1s}
+@keyframes float{to{transform:translateY(-120vh) rotate(20deg)}}
+@keyframes bounce{50%{transform:translateY(-12px) rotate(3deg)}}
+</style>
+</head>
+<body>
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+
+<div class="card">
+ <div class="cake">🎂</div>
+ <h1>Happy Birthday Vishal!</h1>
+ <p>🥳 Aaj ka din hai tere naam, mere dost!</p>
+ <p>Dosti apni hamesha aise hi bani rahe. ❤️</p>
+ <button onclick="surprise()">🎁 Open Your Surprise</button>
+ <div id="message">
+  <h2>🎉 Many Many Happy Returns!</h2>
+  <p>Dear Vishal, teri life khushiyon, success aur amazing memories se bhar jaaye. Har sapna poora ho aur apni dosti hamesha solid rahe! 🤝💙</p>
+  <h2>— From Your Friend ❤️</h2>
+ </div>
+</div>
+
+<script>
+function surprise(){
+ document.getElementById('message').style.display='block';
+ for(let i=0;i<65;i++){
+  let e=document.createElement('span');
+  e.textContent=['🎉','✨','🎊','💙','⭐'][Math.floor(Math.random()*5)];
+  e.style.cssText='position:fixed;left:'+Math.random()*100+
+  'vw;top:-30px;font-size:24px;z-index:5;pointer-events:none;animation:fall '+
+  (2+Math.random()*3)+'s linear forwards';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),5000);
+ }
+}
+let style=document.createElement('style');
+style.textContent='@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:0}}';
+document.head.appendChild(style);
+</script>
+</body>
+</html>
